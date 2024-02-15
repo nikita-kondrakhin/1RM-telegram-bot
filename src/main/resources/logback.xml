@@ -1,0 +1,21 @@
+<configuration>
+    <property name="LOG_DIR" value="logs"/>
+    <property name="LOG_FILE" value="${LOG_DIR}/log_%d{yyyy-MM-dd}.log"/>
+    <appender name="FILE" class="ch.qos.logback.core.FileAppender">
+        <file>${LOG_FILE}</file>
+        <append>true</append>
+        <immediateFlush>true</immediateFlush>
+        <encoder charset="UTF-8">
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+    <logger name="bot" level="debug" additivity="false">
+        <appender-ref ref="FILE"/>
+    </logger>
+    <logger name="util" level="error" additivity="false">
+        <appender-ref ref="FILE"/>
+    </logger>
+    <root level="debug">
+        <appender-ref ref="FILE"/>
+    </root>
+</configuration>
